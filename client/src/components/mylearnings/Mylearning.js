@@ -1,5 +1,5 @@
 import React, { useEffect, useState,Fragment } from 'react';
-import { useHistory,Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { getClickedLearning, postLink, setsubtopic, addsubtopic, addnotes,deletesubtopic,deletelink,deletetopic } from '../../actions/mylearnings';
