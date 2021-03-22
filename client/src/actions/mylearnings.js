@@ -19,7 +19,8 @@ import {
     DELETE_SUBTOPIC,
     DELETE_SUBTOPIC_ERROR,
     DELETE_LINK,
-    DELETE_LINK_ERROR
+    DELETE_LINK_ERROR,
+    LEARNING_DELETE
 } from './types';
 
 
@@ -32,8 +33,7 @@ export const getCurrentLearnings = () => async dispatch => {
         })
     } catch (err) {
         dispatch({
-            type: LEARNINGS_ERROR,
-            payload: { msg: err.response.statusText, status: err.response.status }
+            type: LEARNINGS_ERROR
         })
     }
 }
@@ -140,4 +140,15 @@ export const deletelink = (learningId,subtopicId,linkId) => async dispatch =>{
     } catch (err) {
         dispatch({type:DELETE_LINK_ERROR})
     }
+}
+
+export const deletetopic = (learningId) => async (dispatch) =>{
+    
+        try {
+            await axios.delete(`/api/mylearnings/${learningId}`);
+            dispatch({type:LEARNING_DELETE});
+        } catch (err) {
+            dispatch({type:LEARNING_ERROR});
+        }
+    
 }

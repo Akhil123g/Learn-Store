@@ -4,12 +4,13 @@ import Alert from '../Alert';
 import { getCurrentLearnings, postMylearning } from '../../actions/mylearnings';
 import { connect } from 'react-redux';
 import MylearningItem from './MylearningItem';
+import Spinner from '../Spinner'
 
 const Mylearnings = ({ mylearnings: { mylearnings, loading }, getCurrentLearnings, postMylearning }) => {
 
     useEffect(() => {
         getCurrentLearnings();
-    }, [getCurrentLearnings])
+    }, [getCurrentLearnings,mylearnings]);
 
     const [topic, setTopic] = useState('');
     const onSubmit = (e) => {
@@ -34,14 +35,14 @@ const Mylearnings = ({ mylearnings: { mylearnings, loading }, getCurrentLearning
 
     return (
 
-        <section id="intro-recommend">
+      loading || mylearnings===null? <Spinner />: <section id="intro-recommend">
             <div className="addNew">
                 {inputItem}
             </div>
             <div className="cards-recommend">
                 <div className="recommend-card">
 
-                    <MylearningItem givenClass="card" />
+                    {loading ? <Spinner />:<MylearningItem givenClass="l-card" />}
 
                 </div>
             </div>

@@ -10,9 +10,9 @@ router.get('/', auth,
     async (req, res) => {
         try {
             const mylearnings = await Mylearning.find({ user: req.user.id }).sort({ date: -1 });
-            if (mylearnings.length === 0) {
-                return res.status(400).json({ msg: 'No learnings found for this user' });
-            }
+            // if (mylearnings.length === 0) {
+            //     return res.status(400).json({ msg: 'No learnings found for this user' });
+            // }
             res.json(mylearnings);
         } catch (err) {
             console.error(err.message);

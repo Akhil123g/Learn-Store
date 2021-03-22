@@ -36,6 +36,16 @@ body {
 .active{
   background-color: honeydew;
 }
+.addNew{
+  margin-top: 4rem;
+}
+.l-card{
+  width: 14rem;
+  min-height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 header {
   position: fixed;
@@ -43,18 +53,18 @@ header {
   left: 0;
   width: 100%;
   overflow: hidden;
-  background-color: #c5c6c7;
+  background-color: #0c0032;
   display: flex;
   justify-content: center;
   z-index: 1;
 
-  border-bottom: 1px solid #0b0c10;
+  border-bottom: 0.0001rem solid #c5c6c7;
 }
 .navbar {
   width: 85%;
   font-family: 'Architects Daughter', cursive;
   font-weight: 600;
-  color: #0b0c10;
+  color: #c5c6c7;
   height: 4rem;
   display: flex;
   text-align: center;
@@ -62,8 +72,10 @@ header {
   align-items: center;
 }
 .navbar .logo {
-  padding-left: 1rem;
-  font-size: large;
+  font-size: 0.6rem;
+}
+.logo h1{
+  margin: 0;
 }
 
 .navbar ul {
@@ -77,7 +89,7 @@ header {
 .navbar a {
   padding: 0.5rem;
   text-decoration: none;
-  color: #0b0c10;
+  color: #c5c6c7;
   border-radius: 1rem;
   font-size: 1rem;
 }
@@ -91,8 +103,8 @@ header {
   justify-content: space-around;
 }
 .intro-box {
-  background-color: #c5c6c7;
-  color: #0b0c10;
+  background-color: #0c0032;
+  color: #c5c6c7;
   width: 100%;
   min-height: 80vh;
   display: flex;
@@ -107,13 +119,13 @@ header {
 }
 .get-started {
   text-decoration: none;
-  color: #0b0c10;
-  background-color: #c5c6c7;
+  color: #c5c6c7;
+  background-color: #0c0032;
   font-weight: 550;
   font-size: 1.2rem;
   padding: 0.2rem 1.5rem;
   border-radius: 5px;
-  border: 1px solid #0b0c10;
+  border: 1px solid #c5c6c7;
 }
 .start {
   background-color: #f08021;
@@ -166,7 +178,7 @@ header {
   color: #0b0c10;
   width: 100%;
   background-image: url('./images/homeimage.jpg');
-  background-color: #7cadaf;
+  background-color: #57afca;
   background-blend-mode: hard-light;
   min-height: 30rem;
 }
@@ -224,7 +236,7 @@ header {
   height: 11rem;
 }
 .recommend {
-  background-color: #9068be;
+  background-color: #0c0032;
   margin: 0;
   width: 100%;
   height: 4rem;
@@ -233,9 +245,9 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  border-top: 1px solid #0b0c10;
-  border-left: 1px solid #0b0c10;
-  border-right: 1px solid #0b0c10;
+  border-top: 1px solid #c5c6c7;
+  border-left: 1px solid #c5c6c7;
+  border-right: 1px solid #c5c6c7;
 }
 .recommend h2 {
   font-size: 1rem;
@@ -252,7 +264,7 @@ header {
   overflow-x: scroll;
 }
 .cards {
-  color: #0b0c10;
+  color: #c5c6c7;
   margin-top: -4rem;
   margin-bottom: 4rem;
   background-color: #c5c6c7;
@@ -265,13 +277,19 @@ header {
   justify-content: space-between;
 }
 .card-1 {
-  background-color: #9068be;
+  background-color: #116466;
 }
 .card-2 {
   background-color: #9a9a9a;
 }
 .card-3 {
   background-color: #f08021;
+}
+.card-4{
+  background-color: #f64c72;
+}
+.card-5{
+  background-color: #05386b;
 }
 .cards .card {
   margin: 1.2rem 0.8rem;
@@ -362,6 +380,7 @@ header {
 
 #intro-recommend {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -384,14 +403,16 @@ header {
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(3, 300px);
+  grid-row-gap: 1rem;
   justify-items: center;
   width: 100%;
   min-height: 30rem;
 }
 .subtopic-active{
-  background: linear-gradient(90deg,#f0822169,#fff);
+  /* border-top:0.001rem solid #0b0c10;
+  border-bottom:0.001rem solid #0b0c10; */
   border-left:0.4rem solid #f08021;
-  border-radius: 0 0.3rem 0.3rem 0;
+  background-color: #c5c6c756;
 }
 .foot {
   width: 100%;
@@ -466,7 +487,7 @@ header {
   height: 2rem;
   background-color: #c5c6c7;
   border: none;
-  border-bottom: 1px solid #0b0c10;
+  border-bottom: 1px solid #fff;
   color: #0b0c10;
   font-weight: 600;
 }
@@ -562,15 +583,25 @@ header {
   outline: none;
   border-bottom: 2px solid #f08021;
 }
+
+.delete_butn1{
+  color: #c5c6c7;
+  font-size: 1rem;
+}
+.deleteBtn{
+  color:#5e310b;
+  font-size: 0.7rem;
+}
+.deleteBtn:hover{
+  cursor: pointer;
+}
 .delete_butn{
   color: #000000;
-  background-color: #ec720e;
+  font-size: .6rem;
+  text-align: center;
 }
-.delete_butn:hover{
+.delete_butn:hover,.delete_butn1:hover{
   cursor: pointer;
-  color: #fff;
-  background-color: #1c1f2c;
-  border: 1px solid #c5c6c7;
 }
 .butn-register input {
   color: #fff;
@@ -580,8 +611,26 @@ header {
 .butn-register input:hover {
   cursor: pointer;
 }
+.mylearning-head{
+  font-size: 1rem;
+  text-align: center;
+}
 
 @media screen and (max-width: 930px) {
+  .recommend-card {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(2, 50%);
+    grid-row-gap: 1rem;
+    justify-items: center;
+    width: 100%;
+    min-height: 30rem;
+  }
+  .l-card{
+    width: 14rem;
+    min-height: 15rem;
+  }
   .create-headerdiv {
     clip-path: polygon(50% 0%, 100% 0, 100% 60%, 0 100%, 0 0);
     width: 100%;
@@ -595,13 +644,13 @@ header {
     font-size: 2rem;
   }
   .logo {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
   .lines {
     z-index: 4;
     position: fixed;
-    right: 2.1875rem;
-    top: 1.875rem;
+    right: 1.575rem;
+    top: 1.575rem;
     transition: all 0.8s ease-out;
   }
   .nav-ul li {
@@ -643,9 +692,9 @@ header {
   }
   .btn-line {
     margin: 0 0 0.28rem 0;
-    width: 1.75rem;
+    width: 1.5rem;
     height: 0.1875rem;
-    background-color: #0b0c10;
+    background-color: #c5c6c7;
     transition: all 0.8s ease-out;
   }
   .lines.close .btn-line {
@@ -684,10 +733,38 @@ header {
 .sticky-header{
   visibility: hidden;
 }
+@media screen and (max-width:520px){
+  .logo a{
+    font-size: .8rem;
+  }
+  .recommend-card {
+
+    grid-template-columns: repeat(2, 45%);
+    grid-row-gap:1rem;
+    grid-column-gap: 0.5rem;
+    
+  }
+  .l-card{
+    width: 8rem;
+    min-height: 10rem;
+  }
+}
+.more-div{
+  height: 0;
+  visibility: hidden;
+}
+.more-div a{
+  text-decoration: none;
+}
 @media screen and (max-width: 450px) {
   .register-card {
     width: 90%;
     height: 70vh;
+  }
+  .delete_butn1{
+    visibility: hidden;
+    height: 0;
+    width: 0;
   }
   header {
     overflow: hidden;
@@ -704,17 +781,31 @@ header {
     width: 100%;
     
   }
+  .more-div{
+    height: 20vh;
+    width: 50%;
+    top:6rem;
+    position: fixed;
+    right: 0;
+    background-color: #e5f5f5;
+  }
+  .show-more{
+    visibility: visible;
+  }
   .subtopics,.more{
     height: 2rem;
     position: sticky;
     text-align: center;
     width: 50%;
-    background-color: #c5c6c7;
-    color: #100e17;
+    background-color: #0c0032;
+    color: #c5c6c7;
     border-radius: 2px;
     opacity: 0.9;
-    border: 1px solid #0b0c10;
-    
+    border-bottom: 1px solid #c5c6c7;
+    font-size: .8rem;
+  }
+  .subtopics{
+    border-right: 1px solid #c5c6c7;
   }
   
   .subtopics h4, .more h4 {

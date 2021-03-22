@@ -30,7 +30,7 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
     );
     const guestLinks = (
         <ul className={`nav-ul ${isShowing ? 'show':''}`} onClick={()=>setShowing(!isShowing)}>
-            <li ><Link to="/recommended" >Recommended</Link></li>
+            <li ><Link to="#!" >Recommended</Link></li>
             <li ><Link to="/login">Login</Link></li>
             <li ><Link to="/register" className="start">Get Started</Link></li>
         </ul>
@@ -40,7 +40,7 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
         <header>
             <nav className="navbar">
                 <div className="logo">
-                    <h1><Link to="/" style={{ fontSize: '1.5rem' }}>LearnStore</Link></h1>
+                    <Link to="/"><h1>Learnstore</h1></Link>
                 </div>
                 {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
             </nav>

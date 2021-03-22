@@ -17,7 +17,8 @@ import {
     DELETE_SUBTOPIC,
     DELETE_SUBTOPIC_ERROR,
     DELETE_LINK,
-    DELETE_LINK_ERROR
+    DELETE_LINK_ERROR,
+    LEARNING_DELETE
 } from '../actions/types'
 const initialState = {
     subtopic: null,
@@ -35,13 +36,18 @@ export default function (state = initialState, action) {
                 ...state,
                 subtopic:null,
                 mylearnings: payload,
-                loading: false
+                loading: false,
+            };
+        case LEARNING_DELETE:
+            return {
+                ...state,
+                subtopic:null,
+                loading:false,
             };
         case LEARNINGS_ERROR:
             return {
                 ...state,
-                error: payload,
-                loading: false
+                loading: false,
             };
         case CLEAR_PROFILE:
             return {
