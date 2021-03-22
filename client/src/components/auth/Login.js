@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Alert from '../Alert';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
-const Login = ({ login }) => {
+const Login = ({ isAuthenticated, login }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -14,7 +14,13 @@ const Login = ({ login }) => {
     const onSubmit = e => {
         e.preventDefault();
         login(email, password);
+    };
+
+    // Redirect
+    if (isAuthenticated) {
+        return <Redirect to="/home" />
     }
+
     return (
         <section id="register">
             <div className="register-card">
@@ -43,7 +49,12 @@ const Login = ({ login }) => {
 };
 
 Login.propTypes = {
+    isAuthenticated: PropTypes.bool,
     login: PropTypes.func.isRequired,
-}
+};
 
-export default connect(null, { login })(Login)
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { login })(Login)

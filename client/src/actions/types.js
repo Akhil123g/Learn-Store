@@ -6,5 +6,23 @@ export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
-
+export const LOGOUT = 'LOGOUT';
+export const GET_LEARNINGS = 'GET_LEARNINGS';
+export const LEARNINGS_ERROR = 'LEARNINGS_ERROR';
+export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const ADD_LEARNING = 'ADD_LEARNING';
+export const ADD_LEARNING_ERROR = 'ADD_LEARNING_ERROR';
+export const GET_LEARNING = 'GET_LEARNING';
+export const LEARNING_ERROR = 'LEARNING_ERROR';
+export const ADD_LINK = 'ADD_LINK';
+export const LINK_ERROR = 'LINK_ERROR';
+export const SET_SUBTOPIC = 'SET_SUBTOPIC';
+export const ADD_SUBTOPIC = 'ADD_SUBTOPIC';
+export const ADD_SUBTOPIC_ERROR = 'ADD_SUBTOPIC_ERROR';
+export const ADD_NOTES = 'ADD_NOTES';
+export const NOTES_ERROR = 'NOTES_ERROR';
+export const DELETE_SUBTOPIC = 'DELETE_SUBTOPIC';
+export const DELETE_LINK = 'DELETE_LINK';
+export const DELETE_SUBTOPIC_ERROR = 'DELETE_SUBTOPIC_ERROR';
+export const DELETE_LINK_ERROR = 'DELETE_LINK_ERROR';
 

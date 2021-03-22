@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
+import Dashboard from './components/dashboard/Dashboard';
 import store from './store'
 
 import Navbar from './components/Navbar';
@@ -9,6 +10,9 @@ import Login from './components/auth/Login';
 import Landing from './components/Landing';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
+import PrivateRoute from './components/routing/PrivateRoute';
+import Mylearnings from './components/mylearnings/Mylearnings';
+import Mylearning from './components/mylearnings/Mylearning';
 import './App.css';
 
 if (localStorage.token) {
@@ -30,6 +34,9 @@ const App = () => {
           <Switch>
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/login" component={Login}></Route>
+            <PrivateRoute exact path="/home" component={Dashboard}></PrivateRoute>
+            <PrivateRoute exact path="/mylearning" component={Mylearnings}></PrivateRoute>
+            <PrivateRoute exact path="/mylearning/:id" component={Mylearning}></PrivateRoute>
           </Switch>
         </Fragment>
       </Fragment>

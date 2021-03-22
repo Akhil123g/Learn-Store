@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const Alert = ({ alerts }) =>
+const Alert = ({ alerts,width }) =>
     alerts !== null && alerts.length > 0 && alerts.map(alert => (
-        <div key={alert.id} className={`alert alert-${alert.alertType}`}>
+        <div key={alert.id} className={`alert alert-${alert.alertType}`} style={{width:width, margin:'0'}}>
             {alert.msg}
         </div>
     ));
 
 Alert.propTypes = {
     alerts: PropTypes.array.isRequired,
+    width:PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({

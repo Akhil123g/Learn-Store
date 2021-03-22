@@ -14,7 +14,7 @@ body {
   margin: 0;
   border: 0;
   padding: 0;
-  background: linear-gradient(290deg, #1c1f2c, #0f1318);
+  background-color: #0b0c10;
   color: #c5c6c7;
   line-height: 2;
   font-weight: 500;
@@ -24,7 +24,6 @@ body {
 }
 .alert{
   width: 90%;
-  height: 2rem;
   padding: 0 0.5rem;
   margin-top: 1rem;
 }
@@ -33,6 +32,9 @@ body {
 }
 .alert-success{
   background-color: rgb(90, 233, 90);
+}
+.active{
+  background-color: honeydew;
 }
 
 header {
@@ -61,7 +63,9 @@ header {
 }
 .navbar .logo {
   padding-left: 1rem;
+  font-size: large;
 }
+
 .navbar ul {
   display: flex;
 }
@@ -147,6 +151,78 @@ header {
   justify-content: center;
   text-align: center;
 }
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+.home-intro {
+  display: flex;
+  font-size: 1.2rem;
+  align-items: center;
+  color: #0b0c10;
+  width: 100%;
+  background-image: url('./images/homeimage.jpg');
+  background-color: #7cadaf;
+  background-blend-mode: hard-light;
+  min-height: 30rem;
+}
+
+.heading-box {
+  margin: 1rem;
+  background-color: #fff;
+  border: 1px solid #0b0c10;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+.heading-box h1 {
+  text-align: center;
+  margin: 0;
+}
+.heading-box p {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+}
+.home-mylearnings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #c5c6c7;
+  width: 100%;
+}
+.home-mylearnings h3 {
+  margin-left: 2rem;
+}
+.mylearning-input{
+  text-align: center;
+
+}
+
+.mylearning-cards {
+  margin-left: 2rem;
+  width: 90%;
+  min-height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  overflow-x: scroll;
+  border: 1px solid #c5c6c7;
+  border-radius: 4px;
+}
+
+.mycard {
+  margin: 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 15rem;
+  height: 11rem;
+}
 .recommend {
   background-color: #9068be;
   margin: 0;
@@ -230,7 +306,7 @@ header {
   min-height: 30rem;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   background-color: #e1e8f0;
   background-attachment: fixed;
   clip-path: polygon(100% 0, 100% 0, 75% 100%, 0 100%, 0 0);
@@ -312,7 +388,11 @@ header {
   width: 100%;
   min-height: 30rem;
 }
-
+.subtopic-active{
+  background: linear-gradient(90deg,#f0822169,#fff);
+  border-left:0.4rem solid #f08021;
+  border-radius: 0 0.3rem 0.3rem 0;
+}
 .foot {
   width: 100%;
   height: 6rem;
@@ -340,7 +420,7 @@ header {
 .leftdiv {
   width: 20%;
   height: 100vh;
-  background-color: #9a9a9a;
+  background-color: #fff;
   position: fixed;
   top: 4rem;
   display: flex;
@@ -360,7 +440,7 @@ header {
   padding: 3rem 0;
   margin-left: 20%;
   width: 80%;
-  background-color: #1c1f2c;
+  background-color: #0b0c10;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -396,13 +476,17 @@ header {
 }
 .notes {
   width: 80%;
-  height: 30rem;
+  min-height: 30rem;
   background-color: #c5c6c7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .notes .notes-text {
   color: #0b0c10;
   width: 100%;
-  height: 100%;
+  height: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -477,6 +561,16 @@ header {
 .input input:focus {
   outline: none;
   border-bottom: 2px solid #f08021;
+}
+.delete_butn{
+  color: #000000;
+  background-color: #ec720e;
+}
+.delete_butn:hover{
+  cursor: pointer;
+  color: #fff;
+  background-color: #1c1f2c;
+  border: 1px solid #c5c6c7;
 }
 .butn-register input {
   color: #fff;
@@ -587,10 +681,62 @@ header {
     grid-gap: 3rem;
   }
 }
+.sticky-header{
+  visibility: hidden;
+}
 @media screen and (max-width: 450px) {
   .register-card {
     width: 90%;
     height: 70vh;
+  }
+  header {
+    overflow: hidden;
+  }
+  .leftdiv {
+    top: 6rem;
+    opacity: 0.9;
+    visibility: hidden;
+  }
+  .sticky-header{
+    visibility: visible;
+    position: sticky;
+    top: 4rem;
+    width: 100%;
+    
+  }
+  .subtopics,.more{
+    height: 2rem;
+    position: sticky;
+    text-align: center;
+    width: 50%;
+    background-color: #c5c6c7;
+    color: #100e17;
+    border-radius: 2px;
+    opacity: 0.9;
+    border: 1px solid #0b0c10;
+    
+  }
+  
+  .subtopics h4, .more h4 {
+    margin: 0;
+  }
+  .rightdiv {
+    margin-left: 0;
+    width: 100%;
+  }
+  .links {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+  .notes {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+
+  }
+  .show-subtopics {
+    width: 50%;
+    height: 100vh;
+    visibility: visible;
   }
 }
 @media screen and (max-width: 1024px) {

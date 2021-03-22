@@ -93,7 +93,7 @@ router.post('/subtopic/:id',
             }
             mylearning.subtopics.push(newSubTopic);
             await mylearning.save();
-            res.json(mylearning.subtopics);
+            res.json({ id: mylearning.subtopics[mylearning.subtopics.length - 1]._id, subtopicsArray: mylearning.subtopics });
         } catch (err) {
             console.error(err.message);
             res.status(500).send('Server Error');
