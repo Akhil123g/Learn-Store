@@ -712,13 +712,13 @@ header {
     transform: rotate(180deg);
   }
   .lines.close .btn-line:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 6px);
+    transform: rotate(45deg) translate(0.3rem, 0.36rem);
   }
   .lines.close .btn-line:nth-child(2) {
     opacity: 0;
   }
   .lines.close .btn-line:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -7px);
+    transform: rotate(-45deg) translate(0.3rem, -0.31rem);
   }
   .create-own {
     flex-direction: column;
