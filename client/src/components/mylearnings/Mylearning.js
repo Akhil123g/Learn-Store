@@ -1,18 +1,22 @@
 import React, { useEffect, useState,Fragment } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory,Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { getClickedLearning, postLink, setsubtopic, addsubtopic, addnotes,deletesubtopic,deletelink,deletetopic } from '../../actions/mylearnings';
 import Spinner from '../Spinner';
 import Alert from '../Alert';
 
-const Mylearning = ({ getClickedLearning, mylearning, loading, match, postLink, subtopic, setsubtopic, addsubtopic, addnotes,deletesubtopic,deletelink,deletetopic }) => {
+const Mylearning = ({ error,getClickedLearning, mylearning, loading, match, postLink, subtopic, setsubtopic, addsubtopic, addnotes,deletesubtopic,deletelink,deletetopic }) => {
 
-  
+ 
+    let history = useHistory();
 
     useEffect(() => {
         getClickedLearning(match.params.id, subtopic);
-    }, [getClickedLearning, match.params.id, subtopic]);
+        if(mylearning){ 
+            history.push(`/mylearning/${match.params.id}`);
+        }
+    }, [getClickedLearning,match.params.id,history, subtopic]);
     useEffect(() => {
         if (subtopic && subtopic.notes) {
             setNotes(subtopic.notes);
@@ -48,7 +52,6 @@ const Mylearning = ({ getClickedLearning, mylearning, loading, match, postLink, 
         deletesubtopic(mylearning._id,subtopic._id);
         setMore(!showmore);
     }
-    let history = useHistory();
    const onTopicDelete = () =>{
        if(window.confirm('Delete current topic?')){
        deletetopic(mylearning._id);
@@ -63,8 +66,10 @@ const Mylearning = ({ getClickedLearning, mylearning, loading, match, postLink, 
 const [showsubtopic,setShowsubtopic] = useState(false);
 const [showmore,setMore] = useState(false);
     
-    return loading || mylearning === null ? <Spinner /> : (
+    return loading && mylearning === null ? <Spinner /> : (
         <Fragment>
+        {error && history.goBack()}
+          {/* {error && <div className="not-found" style={{color:'#fff',height:'100vh',backgroundColor:'#4a4e4d'}}><h1>{error}</h1></div>} */}
             {mylearning !== null && (<div className="topic">
             <div style={{display:'flex'}} className="sticky-header">
             <div  className="subtopics" onClick={() =>setShowsubtopic(!showsubtopic)}><h4>subtopics</h4></div>
@@ -86,7 +91,7 @@ const [showmore,setMore] = useState(false);
                     <div className="links">
 
                         <div className="linksstored">
-                            {subtopic !== null && subtopic.links.length !== 0 && subtopic.links.map((link) => <p key={link._id} >{link.text}{' '}<i className="far fa-trash-alt deleteBtn"  onClick={()=>deletelink(mylearning._id,subtopic._id,link._id)}></i></p>)}
+                            {subtopic !== null && subtopic.links.length !== 0 && subtopic.links.map((link) => <h4 key={link._id}><a href={link.text} target="_blank" rel="noreferrer"  >{link.text}{' '}</a><i className="far fa-trash-alt deleteBtn"  onClick={()=>deletelink(mylearning._id,subtopic._id,link._id)}></i></h4> )}
                         </div>
                         {
                             subtopic === null && <div><h1 style={{textAlign: 'center',color:'#5e310b'}}>{mylearning.topic}</h1><h1 style={{textAlign: 'center'}}>What are you waiting for, Go on!</h1></div>
@@ -149,6 +154,7 @@ const mapStateToProps = state => ({
     mylearning: state.mylearnings.mylearning,
     loading: state.mylearnings.loading,
     subtopic: state.mylearnings.subtopic,
+    error:state.mylearnings.error
 });
 
 export default connect(mapStateToProps, { getClickedLearning, postLink, setsubtopic, addsubtopic, addnotes,deletesubtopic,deletelink,deletetopic })(Mylearning);

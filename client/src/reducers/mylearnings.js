@@ -25,7 +25,7 @@ const initialState = {
     mylearning: null,
     mylearnings: [],
     loading: true,
-    error: {}
+    error: null
 }
 // eslint-disable-next-line
 export default function (state = initialState, action) {
@@ -71,12 +71,12 @@ export default function (state = initialState, action) {
                 ...state,
                 mylearning: payload.learning,
                 subtopic: payload.subtopic,
-                error: {},
                 loading: false
             };
         case LEARNING_ERROR:
             return {
                 ...state,
+                error: payload.msg,
                 loading: false
             };
         case ADD_LINK:
@@ -106,7 +106,7 @@ export default function (state = initialState, action) {
                 mylearning: null,
                 mylearnings: [],
                 loading: false,
-                error: {}
+                error: null
             }
         case ADD_SUBTOPIC:
             return {

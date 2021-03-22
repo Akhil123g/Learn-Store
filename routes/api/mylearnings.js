@@ -65,6 +65,7 @@ router.get('/:id', auth,
             res.json(mylearning);
         } catch (err) {
             console.error(err.message);
+            console.error(err.kind);
             if (err.kind === 'ObjectId') {
                 return res.status(404).json({ msg: 'Topic not found' });
             }

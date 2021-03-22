@@ -584,6 +584,14 @@ header {
   border-bottom: 2px solid #f08021;
 }
 
+.not-found{
+  font-size: 1.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .delete_butn1{
   color: #c5c6c7;
   font-size: 1rem;
@@ -756,6 +764,21 @@ header {
 .more-div a{
   text-decoration: none;
 }
+.linksstored{
+  width: 90%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.linksstored a{
+  width: 100%;
+}
+.linksstored h4{
+  font-size: 0.7rem;
+  text-align: center;
+  width: 100%;
+}
 @media screen and (max-width: 450px) {
   .register-card {
     width: 90%;
@@ -815,6 +838,7 @@ header {
     margin-left: 0;
     width: 100%;
   }
+  
   .links {
     width: 100%;
     border-radius: 20px 20px 0 0;

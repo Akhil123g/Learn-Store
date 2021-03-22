@@ -64,7 +64,7 @@ export const getClickedLearning = (id, subtopic) => async dispatch => {
         const res = await axios.get(`/api/mylearnings/${id}`);
         dispatch({ type: GET_LEARNING, payload: { learning: res.data, subtopic: subtopic } });
     } catch (err) {
-        dispatch({ type: LEARNING_ERROR })
+        dispatch({ type: LEARNING_ERROR, payload:{msg: err.response.statusText, status: err.response.status} })
     }
 }
 

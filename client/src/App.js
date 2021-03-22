@@ -13,6 +13,7 @@ import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Mylearnings from './components/mylearnings/Mylearnings';
 import Mylearning from './components/mylearnings/Mylearning';
+import Notfound from './components/Notfound';
 import './App.css';
 
 if (localStorage.token) {
@@ -37,6 +38,7 @@ const App = () => {
             <PrivateRoute exact path="/home" component={Dashboard}></PrivateRoute>
             <PrivateRoute exact path="/mylearning" component={Mylearnings}></PrivateRoute>
             <PrivateRoute exact path="/mylearning/:id" component={Mylearning}></PrivateRoute>
+            <Route component={Notfound}/>
           </Switch>
         </Fragment>
       </Fragment>
