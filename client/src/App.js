@@ -30,15 +30,15 @@ const App = () => {
     <Router>
       <Fragment>
         <Navbar />
-        <Route exact path='/' component={Landing} />
         <Fragment>
           <Switch>
+            <Route exact path='/' component={Landing} />
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/login" component={Login}></Route>
             <PrivateRoute exact path="/home" component={Dashboard}></PrivateRoute>
             <PrivateRoute exact path="/mylearning" component={Mylearnings}></PrivateRoute>
             <PrivateRoute exact path="/mylearning/:id" component={Mylearning}></PrivateRoute>
-            <Route component={Notfound}/>
+            <Route component={Notfound} />
           </Switch>
         </Fragment>
       </Fragment>
